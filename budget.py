@@ -3,16 +3,16 @@ import plotly.graph_objects as go
 import numpy as np
 
 st.set_page_config(
-    page_title="Financial Planning Calculator")
+    page_title="Desi FinPlanner")
 
-st.title("Financial Planning Calculator")
+st.title("Indian Financial Planning Made Easy")
 
 st.header("**Monthly Income**")
 st.subheader("Salary")
 colAnnualSal, colTax = st.columns(2)
 
 with colAnnualSal:
-    salary = st.number_input("Enter your annual salary($): ", min_value=0.0, format='%f')
+    salary = st.number_input("Enter your annual salary(₹): ", min_value=0.0, format='%f')
 with colTax:
     tax_rate = st.number_input("Enter your tax rate(%): ", min_value=0.0, format='%f')
 
@@ -25,32 +25,32 @@ colExpenses1, colExpenses2 = st.columns(2)
 
 with colExpenses1:
     st.subheader("Monthly Rental")
-    monthly_rental = st.number_input("Enter your monthly rental($): ", min_value=0.0,format='%f' )
+    monthly_rental = st.number_input("Enter your monthly rental(₹): ", min_value=0.0,format='%f' )
     
     st.subheader("Daily Food Budget")
-    daily_food = st.number_input("Enter your daily food budget ($): ", min_value=0.0,format='%f' )
+    daily_food = st.number_input("Enter your daily food budget (₹): ", min_value=0.0,format='%f' )
     monthly_food = daily_food * 30
     
     st.subheader("Monthly Unforeseen Expenses")
-    monthly_unforeseen = st.number_input("Enter your monthly unforeseen expenses ($): ", min_value=0.0,format='%f' ) 
+    monthly_unforeseen = st.number_input("Enter your monthly unforeseen expenses (₹): ", min_value=0.0,format='%f' ) 
     
 with colExpenses2:
     st.subheader("Monthly Transport")
-    monthly_transport = st.number_input("Enter your monthly transport fee ($): ", min_value=0.0,format='%f' )   
+    monthly_transport = st.number_input("Enter your monthly transport fee (₹): ", min_value=0.0,format='%f' )   
     
     st.subheader("Monthly Utilities Fees")
-    monthly_utilities = st.number_input("Enter your monthly utilities fees ($): ", min_value=0.0,format='%f' )
+    monthly_utilities = st.number_input("Enter your monthly utilities fees (₹): ", min_value=0.0,format='%f' )
     
     st.subheader("Monthly Entertainment Budget")
-    monthly_entertainment = st.number_input("Enter your monthly entertainment budget ($): ", min_value=0.0,format='%f' )   
+    monthly_entertainment = st.number_input("Enter your monthly entertainment budget (₹): ", min_value=0.0,format='%f' )   
 
 monthly_expenses = monthly_rental + monthly_food + monthly_transport + monthly_entertainment + monthly_utilities + monthly_unforeseen
 monthly_savings = monthly_takehome_salary - monthly_expenses 
 
 st.header("**Savings**")
-st.subheader("Monthly Take Home Salary: $" + str(round(monthly_takehome_salary,2)))
-st.subheader("Monthly Expenses: $" + str(round(monthly_expenses, 2)))
-st.subheader("Monthly Savings: $" + str(round(monthly_savings, 2)))
+st.subheader("Monthly Take Home Salary: ₹" + str(round(monthly_takehome_salary,2)))
+st.subheader("Monthly Expenses: ₹" + str(round(monthly_expenses, 2)))
+st.subheader("Monthly Savings: ₹" + str(round(monthly_savings, 2)))
 
 st.markdown("---")
 
@@ -104,6 +104,6 @@ fig.add_trace(
     )
 fig.update_layout(title='Forecast Salary, Expenses & Savings Over the Years',
                    xaxis_title='Year',
-                   yaxis_title='Amount($)')
+                   yaxis_title='Amount(₹)')
 
 st.plotly_chart(fig, use_container_width=True)
